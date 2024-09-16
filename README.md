@@ -14,9 +14,6 @@ However, we found that the steps mentioned in the official repository of Apple w
 3. [Dataset](#dataset)
 4. [Training the Model](#training-the-model)
 5. [Performing Inference](#performing-inference)
-6. [Results](#results)
-7. [Contributing](#contributing)
-8. [License](#license)
 
 ---
 
@@ -49,11 +46,21 @@ pip install -r requirements.txt
 The reason we're copying all the scripts and running from this repository is that we have made some changes to the `train.py` file without which we would not have been able to run the scripts. 
 *Please check the video for more details. 
 
+---
+
 ### Dataset
 The dataset used for training is included in the repository itself. 
 Download the folder keep the structure of the folders intact as this is the recommended structure for training the model. 
 The structure is the same as to the Imagenet structure that the model was trained on.
+
 **Dataset:** `commercial_items/`
+
+**Link to the Kaggle Dataset:** https://www.kaggle.com/datasets/takihasan/commercial-items?resource=download
+
+*We have made some modifications to the structure of dataset. 
+
+---
+
 
 ### Training the Model
 Please follow the steps below to train the model:
@@ -75,8 +82,16 @@ python -m torch.distributed.launch --nproc_per_node=1 train.py \
 
 Please check the accuracy and stop the training process when you feel like you've reached the accuracy needed. 
 
+---
+
+### Performing the inference
+
 2. After the training part is over, make the required changes to the `main.py` script as advised in the docstring of the script and run the script with the command below. 
 
 ```bash
 python main.py
 ```
+
+---
+
+
