@@ -23,9 +23,10 @@ However, we found that the steps mentioned in the official repository of Apple w
 ## Introduction
 
 The official paper for the fastvit is mentioned below if you are interested in reading the paper. 
-**Paper: ** https://arxiv.org/abs/2303.14189
+**Paper:** https://arxiv.org/abs/2303.14189
 
-This repository contains the code to train a [fastvit model] for [image tagging], such as classifying images, detecting objects, or predicting time-series data. This README will guide you through the steps to train and deploy it for inference.
+This repository contains the code to train a [fastvit model] for [image tagging], such as classifying images, detecting objects, or predicting time-series data. 
+This README will guide you through the steps to train and deploy it for inference.
 
 ---
 
@@ -42,5 +43,32 @@ Clone the repository and install the required dependencies:
 
 ```bash
 git clone https://github.com/username/repository-name.git
-cd repository-name
+cd fastvit-implementation
 pip install -r requirements.txt
+```
+
+### Dataset
+The dataset used for training is included in the repository itself. 
+Download the folder keep the structure of the folders intact as this is the recommended structure for training the model. 
+The structure is the same as to the Imagenet structure that the model was trained on.
+
+### Training the Model
+Please follow the steps below to train the model:
+
+
+*Since we have already installed all required libraries, we can just skip ahead to the next part. 
+
+1. Run the code below in your terminal.
+   
+```bash
+python -m torch.distributed.launch --nproc_per_node=1 train.py \
+/path/to/ImageNet/dataset --model fastvit_t8 -b 128 --lr 1e-3 \
+--native-amp --mixup 0.2 --output /path/to/save/results \
+--input-size 3 256 256
+```
+--nproc_per_node : this is required for multiprocessing and while most of our personal devices won't have multiprocessing included; please keep this to 1
+-b : This is the batch size to be used while training. Please modify this as per your requirement. Since, the compute will be heavy for a batch size of 128, we can go as low as 8 and it wouldn't hurt the training process as much. 
+
+
+2. 
+
