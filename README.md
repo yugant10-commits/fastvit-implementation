@@ -46,17 +46,20 @@ git clone https://github.com/username/repository-name.git
 cd fastvit-implementation
 pip install -r requirements.txt
 ```
+The reason we're copying all the scripts and running from this repository is that we have made some changes to the `train.py` file without which we would not have been able to run the scripts. 
+*Please check the video for more details. 
 
 ### Dataset
 The dataset used for training is included in the repository itself. 
 Download the folder keep the structure of the folders intact as this is the recommended structure for training the model. 
 The structure is the same as to the Imagenet structure that the model was trained on.
+**Dataset:** `commercial_items/`
 
 ### Training the Model
 Please follow the steps below to train the model:
 
 
-*Since we have already installed all required libraries, we can just skip ahead to the next part. 
+*Since we have already installed all required libraries, we can just start with the process below. 
 
 1. Run the code below in your terminal.
    
@@ -66,9 +69,14 @@ python -m torch.distributed.launch --nproc_per_node=1 train.py \
 --native-amp --mixup 0.2 --output /path/to/save/results \
 --input-size 3 256 256
 ```
---nproc_per_node : this is required for multiprocessing and while most of our personal devices won't have multiprocessing included; please keep this to 1
+--nproc_per_node : this is required for multiprocessing and while most of our personal devices won't have multiprocessing included; please keep this to 1.
+
 -b : This is the batch size to be used while training. Please modify this as per your requirement. Since, the compute will be heavy for a batch size of 128, we can go as low as 8 and it wouldn't hurt the training process as much. 
 
+Please check the accuracy and stop the training process when you feel like you've reached the accuracy needed. 
 
-2. 
+2. After the training part is over, make the required changes to the `main.py` script as advised in the docstring of the script and run the script with the command below. 
 
+```bash
+python main.py
+```
