@@ -84,7 +84,7 @@ Please check the accuracy and stop the training process when you feel like you'v
 
 ---
 
-### Performing the inference
+### Performing inference
 
 2. After the training part is over, make the required changes to the `main.py` script as advised in the docstring of the script and run the script with the command below. 
 
