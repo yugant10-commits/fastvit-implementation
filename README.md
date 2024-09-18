@@ -4,7 +4,7 @@ This repository is a part of the video series started by us in the channel AIML 
 We show you how to train the latest model from Apple named fastvit. This is a very small vision transformer model that is used to label images. The training process and the inference is simple and beginner friendly. 
 However, we found that the steps mentioned in the official repository of Apple were a bit short and would sometimes lead to multiple issues. Please follow along the video or the instructions below to run the training and inference script. 
 
-**Official Repository from Apple: ** https://github.com/apple/ml-fastvit
+**Official Repository from Apple:** https://github.com/apple/ml-fastvit
 
 
 ## Table of Contents
@@ -39,7 +39,7 @@ Make sure you have the following installed:
 Clone the repository and install the required dependencies:
 
 ```bash
-git clone https://github.com/username/repository-name.git
+git clone https://github.com/yugant10-commits/fastvit-implementation.git
 cd fastvit-implementation
 pip install -r requirements.txt
 ```
